@@ -1,0 +1,450 @@
+/* فایل رسپانسیو - سازگاری با تمام دستگاه‌ها */
+
+/* دستگاه‌های بزرگ (دسکتاپ) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* تبلت (صفحه افقی) */
+@media (max-width: 1199.98px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .slide-text h2 {
+        font-size: 2rem;
+    }
+    
+    .slide-text p {
+        font-size: 1rem;
+    }
+    
+    .swiper {
+        height: 350px;
+    }
+}
+
+/* تبلت (صفحه عمودی) */
+@media (max-width: 991.98px) {
+    /* هدر */
+    .search-box {
+        order: 3;
+        max-width: 100%;
+        margin: 15px 0;
+    }
+    
+    .header-icons {
+        margin-right: auto;
+    }
+    
+    .navbar-collapse {
+        background-color: var(--white);
+        padding: 20px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        margin-top: 15px;
+    }
+    
+    .mega-menu .dropdown-menu {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* اسلایدر */
+    .swiper {
+        height: 300px;
+    }
+    
+    .slide-overlay {
+        padding-right: 50px;
+    }
+    
+    .slide-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* محصولات */
+    .product-image {
+        height: 220px;
+    }
+    
+    /* فوتر */
+    .footer-widget {
+        margin-bottom: 30px;
+    }
+    
+    /* پنل مدیریت */
+    .main-content {
+        margin-right: 0;
+    }
+}
+
+/* موبایل */
+@media (max-width: 767.98px) {
+    /* عمومی */
+    body {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* هدر */
+    .top-header {
+        font-size: 0.8rem;
+    }
+    
+    .top-links a {
+        margin-right: 10px;
+    }
+    
+    .logo {
+        height: 35px;
+    }
+    
+    /* اسلایدر */
+    .swiper {
+        height: 250px;
+    }
+    
+    .slide-overlay {
+        padding-right: 20px;
+        background: linear-gradient(to left, rgba(0,0,0,0.8), transparent);
+    }
+    
+    .slide-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .slide-text p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .slide-text .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* کارت محصولات */
+    .product-card {
+        margin-bottom: 20px;
+    }
+    
+    .product-title {
+        font-size: 1rem;
+        height: auto;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+    
+    /* صفحه محصول */
+    .product-title {
+        font-size: 1.3rem;
+    }
+    
+    .current-price .price {
+        font-size: 1.5rem;
+    }
+    
+    .action-buttons .btn {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* سبد خرید */
+    .product-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-image {
+        margin: 0 auto 10px;
+    }
+    
+    /* فرم‌ها */
+    .auth-card {
+        padding: 25px;
+    }
+    
+    /* پنل مدیریت */
+    .stats-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .admin-header-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    /* دکمه تغییر تم */
+    .theme-toggle {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .btn-theme-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+/* موبایل کوچک */
+@media (max-width: 575.98px) {
+    /* هدر */
+    .top-header {
+        display: none;
+    }
+    
+    .search-box .form-control {
+        padding: 10px 15px;
+    }
+    
+    .search-box .btn {
+        padding: 10px 20px;
+    }
+    
+    /* اسلایدر */
+    .swiper {
+        height: 200px;
+    }
+    
+    .slide-overlay {
+        justify-content: center;
+        padding-right: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    }
+    
+    .slide-text {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .slide-text h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* دسته‌بندی‌ها */
+    .category-card {
+        padding: 20px 15px;
+    }
+    
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    /* محصولات */
+    .product-card {
+        margin-bottom: 15px;
+    }
+    
+    .product-actions {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* فوتر */
+    .footer-top {
+        padding: 30px 0;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .payment-methods {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    /* صفحات احراز هویت */
+    .verification-inputs {
+        gap: 5px;
+    }
+    
+    .verification-digit {
+        width: 35px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    /* صفحه درباره ما */
+    .timeline::before {
+        right: 20px;
+    }
+    
+    .timeline-item {
+        margin-right: 40px;
+    }
+    
+    /* پنل مدیریت */
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    /* دکمه تغییر تم */
+    .theme-toggle {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .btn-theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* دستگاه‌های با ارتفاع کم */
+@media (max-height: 600px) and (orientation: landscape) {
+    /* هدر */
+    .header {
+        position: relative;
+    }
+    
+    .main-navbar {
+        padding: 10px 0;
+    }
+    
+    /* اسلایدر */
+    .swiper {
+        height: 200px;
+    }
+    
+    /* دکمه تغییر تم */
+    .theme-toggle {
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    .btn-theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}
+
+/* حالت چاپ */
+@media print {
+    .header,
+    .footer,
+    .theme-toggle,
+    .breadcrumb-section,
+    .btn,
+    .social-links,
+    .product-actions,
+    .nav-tabs,
+    .accordion-button {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 12pt;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+    
+    .card,
+    .auth-card,
+    .product-info,
+    .contact-form-card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+}
+
+/* پشتیبانی از Dark Mode در دستگاه‌های مختلف */
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme]) {
+        /* اگر کاربر هنوز تم را انتخاب نکرده باشد */
+        --primary-color: #5d7cf9;
+        --primary-dark: #4a6cf7;
+        --secondary-color: #10b981;
+        --accent-color: #9d7af9;
+        --warning-color: #fbbf24;
+        --danger-color: #f87171;
+        --light-color: #1e293b;
+        --dark-color: #f8fafc;
+        --gray-color: #94a3b8;
+        --gray-light: #334155;
+        --white: #0f172a;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* پشتیبانی از کاهش حرکات */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* پشتیبانی از نمایش با کنتراست بالا */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0033cc;
+        --primary-dark: #002699;
+        --secondary-color: #008000;
+        --danger-color: #cc0000;
+        --warning-color: #cc7a00;
+    }
+    
+    .btn-primary {
+        border: 2px solid var(--primary-dark);
+    }
+    
+    .btn-outline-primary {
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* نمایش در حالت خواندن */
+@media (prefers-reduced-transparency: reduce) {
+    .slide-overlay,
+    .modal-backdrop,
+    .toast-notification {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+}

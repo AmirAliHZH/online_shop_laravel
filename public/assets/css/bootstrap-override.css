@@ -1,0 +1,194 @@
+/* بازنویسی استایل‌های بوت‌استرپ برای راست‌چین بودن */
+
+/* جهت‌دهی کلی */
+body {
+    text-align: right;
+    direction: rtl;
+}
+
+/* بازنویسی float */
+.float-start {
+    float: right !important;
+}
+
+.float-end {
+    float: left !important;
+}
+
+/* بازنویسی margin و padding */
+.me-1 {
+    margin-left: 0.25rem !important;
+    margin-right: 0 !important;
+}
+
+.me-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+
+.me-3 {
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+}
+
+.me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+.ms-1 {
+    margin-right: 0.25rem !important;
+    margin-left: 0 !important;
+}
+
+.ms-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+.ms-3 {
+    margin-right: 1rem !important;
+    margin-left: 0 !important;
+}
+
+.ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.pe-1 {
+    padding-left: 0.25rem !important;
+    padding-right: 0 !important;
+}
+
+.pe-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0 !important;
+}
+
+.pe-3 {
+    padding-left: 1rem !important;
+    padding-right: 0 !important;
+}
+
+.ps-1 {
+    padding-right: 0.25rem !important;
+    padding-left: 0 !important;
+}
+
+.ps-2 {
+    padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+}
+
+.ps-3 {
+    padding-right: 1rem !important;
+    padding-left: 0 !important;
+}
+
+/* بازنویسی dropdown */
+.dropdown-menu {
+    text-align: right;
+    left: auto !important;
+    right: 0 !important;
+}
+
+.dropdown-menu-end {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* بازنویسی navbar */
+.navbar-nav {
+    padding-right: 0;
+}
+
+.navbar-toggler {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* بازنویسی form */
+.form-check {
+    padding-right: 1.5em;
+    padding-left: 0;
+}
+
+.form-check-input {
+    float: right;
+    margin-right: -1.5em;
+    margin-left: 0;
+}
+
+.form-check-label {
+    padding-right: 0.5em;
+}
+
+.input-group > .form-control,
+.input-group > .form-select {
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.input-group > .btn {
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+/* بازنویسی modal */
+.modal-header .btn-close {
+    margin: -0.5rem auto -0.5rem -0.5rem;
+}
+
+/* بازنویسی breadcrumb */
+.breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-left: 0.5rem;
+    padding-right: 0;
+}
+
+/* بازنویسی pagination */
+.pagination {
+    padding-right: 0;
+}
+
+.page-item:first-child .page-link {
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+/* بازنویسی carousel */
+.carousel-control-prev {
+    right: 0;
+    left: auto;
+}
+
+.carousel-control-next {
+    left: 0;
+    right: auto;
+}
+
+.carousel-indicators {
+    padding-right: 0;
+}
+
+/* بازنویسی alert */
+.alert-dismissible {
+    padding-left: 3rem;
+    padding-right: 1rem;
+}
+
+.alert-dismissible .btn-close {
+    left: 0;
+    right: auto;
+}
+
+/* بازنویسی list */
+.list-group {
+    padding-right: 0;
+}
+
+.list-group-item {
+    text-align: right;
+}
