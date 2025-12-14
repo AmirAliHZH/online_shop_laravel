@@ -14,13 +14,13 @@
             @include('admin.layout.header')
 
             @yield('body')
-            @yield('modal')
         </div>
     </div>
+    @yield('modal')
 
     <!-- JavaScript -->
-    <script src="{{asset("assets/js/bootstrap.bundle.min.js")}}"></script>
-    <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @yield('js')
 </body>
