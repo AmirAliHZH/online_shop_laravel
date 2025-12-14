@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل مدیریتی</title>
-
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-override.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
-    <!-- Admin CSS -->
+@extends('admin.layout.master')
+@section('title')
+    پنل مدیریت
+@endsection
+@section('css')
     <style>
         /* استایل‌های مخصوص پنل مدیریت */
         .admin-wrapper {
@@ -53,7 +34,7 @@
             transform: translateX(100%);
         }
 
-        .sidebar.collapsed + .main-content {
+        .sidebar.collapsed+.main-content {
             margin-right: 0;
         }
 
@@ -100,7 +81,7 @@
         .admin-header {
             background-color: var(--white);
             padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -154,10 +135,21 @@
             margin-bottom: 15px;
         }
 
-        .stat-card.primary i { color: var(--primary-color); }
-        .stat-card.success i { color: var(--secondary-color); }
-        .stat-card.warning i { color: var(--warning-color); }
-        .stat-card.danger i { color: var(--danger-color); }
+        .stat-card.primary i {
+            color: var(--primary-color);
+        }
+
+        .stat-card.success i {
+            color: var(--secondary-color);
+        }
+
+        .stat-card.warning i {
+            color: var(--warning-color);
+        }
+
+        .stat-card.danger i {
+            color: var(--danger-color);
+        }
 
         .stat-value {
             font-size: 2rem;
@@ -215,198 +207,143 @@
             }
         }
     </style>
-</head>
-<body class="light-theme">
+@endsection
+@section('body')
+    <!-- Main -->
+    <main class="p-4">
+        <div class="container-fluid">
+            <h2 class="mb-4">داشبورد مدیریت</h2>
 
-    <div class="admin-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h4 class="mb-0">پنل مدیریت</h4>
-                <small>فروشگاه ایرانی</small>
+            <!-- Stats Cards -->
+            <div class="stats-cards">
+                <div class="stat-card primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="stat-value">۱,۲۴۵</div>
+                    <div class="stat-label">سفارشات جدید</div>
+                </div>
+
+                <div class="stat-card success">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div class="stat-value">۲۵۴.۳ <small>میلیون</small></div>
+                    <div class="stat-label">درآمد این ماه</div>
+                </div>
+
+                <div class="stat-card warning">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-value">۵,۸۴۲</div>
+                    <div class="stat-label">کاربران جدید</div>
+                </div>
+
+                <div class="stat-card danger">
+                    <i class="fas fa-box"></i>
+                    <div class="stat-value">۱۲</div>
+                    <div class="stat-label">محصولات تمام شده</div>
+                </div>
             </div>
 
-            <div class="sidebar-menu">
-                <ul>
-                    <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> داشبورد</a></li>
-                    <li><a href="products.html"><i class="fas fa-box"></i> محصولات</a></li>
-                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> سفارشات</a></li>
-                    <li><a href="users.html"><i class="fas fa-users"></i> کاربران</a></li>
-                    <li><a href="#"><i class="fas fa-chart-bar"></i> آمار و گزارشات</a></li>
-                    <li><a href="stats.html"><i class="fas fa-chart-line"></i> تحلیل‌ها</a></li>
-                    <li><a href="#"><i class="fas fa-comments"></i> نظرات</a></li>
-                    <li><a href="#"><i class="fas fa-tags"></i> تخفیف‌ها</a></li>
-                    <li><a href="settings.html"><i class="fas fa-cog"></i> تنظیمات</a></li>
-                    <li><a href="../index.html"><i class="fas fa-home"></i> بازگشت به سایت</a></li>
-                </ul>
+            <!-- Charts -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h5>آمار فروش ۳ ماه گذشته</h5>
+                            <select class="form-select" style="width: auto;">
+                                <option>۳ ماه گذشته</option>
+                                <option>۶ ماه گذشته</option>
+                                <option>سال جاری</option>
+                            </select>
+                        </div>
+                        <canvas id="salesChart" height="250"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="chart-container">
+                        <h5 class="mb-4">دسته‌بندی محصولات پرفروش</h5>
+                        <canvas id="categoryChart" height="250"></canvas>
+                    </div>
+                </div>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <header class="admin-header">
-                <button class="toggle-sidebar" id="toggleSidebar">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <!-- Recent Orders -->
+            <div class="table-container mt-4">
+                <h5 class="mb-4">سفارشات اخیر</h5>
 
-                <div class="admin-header-right">
-                    <div class="user-profile">
-                        <div class="user-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h6 class="mb-0">مدیر سیستم</h6>
-                            <small class="text-muted">ادمین</small>
-                        </div>
-                    </div>
-
-                    <a href="../index.html" class="btn btn-outline-primary">
-                        <i class="fas fa-sign-out-alt me-1"></i> خروج
-                    </a>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>شماره سفارش</th>
+                                <th>مشتری</th>
+                                <th>تاریخ</th>
+                                <th>مبلغ</th>
+                                <th>وضعیت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-78542</td>
+                                <td>محمد احمدی</td>
+                                <td>۱۴۰۲/۰۵/۱۲</td>
+                                <td>۳,۴۵۰,۰۰۰ تومان</td>
+                                <td><span class="badge bg-success">تحویل شده</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">مشاهده</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-78541</td>
+                                <td>فاطمه محمدی</td>
+                                <td>۱۴۰۲/۰۵/۱۱</td>
+                                <td>۱۲,۸۰۰,۰۰۰ تومان</td>
+                                <td><span class="badge bg-warning">در حال پردازش</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">مشاهده</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-78540</td>
+                                <td>علی رضایی</td>
+                                <td>۱۴۰۲/۰۵/۱۰</td>
+                                <td>۵,۶۰۰,۰۰۰ تومان</td>
+                                <td><span class="badge bg-primary">ارسال شده</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">مشاهده</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-78539</td>
+                                <td>زهرا کریمی</td>
+                                <td>۱۴۰۲/۰۵/۰۹</td>
+                                <td>۲,۳۰۰,۰۰۰ تومان</td>
+                                <td><span class="badge bg-danger">لغو شده</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">مشاهده</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-78538</td>
+                                <td>حسین نجفی</td>
+                                <td>۱۴۰۲/۰۵/۰۸</td>
+                                <td>۸,۷۵۰,۰۰۰ تومان</td>
+                                <td><span class="badge bg-success">تحویل شده</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">مشاهده</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </header>
 
-            <!-- Main -->
-            <main class="p-4">
-                <div class="container-fluid">
-                    <h2 class="mb-4">داشبورد مدیریت</h2>
-
-                    <!-- Stats Cards -->
-                    <div class="stats-cards">
-                        <div class="stat-card primary">
-                            <i class="fas fa-shopping-cart"></i>
-                            <div class="stat-value">۱,۲۴۵</div>
-                            <div class="stat-label">سفارشات جدید</div>
-                        </div>
-
-                        <div class="stat-card success">
-                            <i class="fas fa-dollar-sign"></i>
-                            <div class="stat-value">۲۵۴.۳ <small>میلیون</small></div>
-                            <div class="stat-label">درآمد این ماه</div>
-                        </div>
-
-                        <div class="stat-card warning">
-                            <i class="fas fa-users"></i>
-                            <div class="stat-value">۵,۸۴۲</div>
-                            <div class="stat-label">کاربران جدید</div>
-                        </div>
-
-                        <div class="stat-card danger">
-                            <i class="fas fa-box"></i>
-                            <div class="stat-value">۱۲</div>
-                            <div class="stat-label">محصولات تمام شده</div>
-                        </div>
-                    </div>
-
-                    <!-- Charts -->
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="chart-container">
-                                <div class="chart-header">
-                                    <h5>آمار فروش ۳ ماه گذشته</h5>
-                                    <select class="form-select" style="width: auto;">
-                                        <option>۳ ماه گذشته</option>
-                                        <option>۶ ماه گذشته</option>
-                                        <option>سال جاری</option>
-                                    </select>
-                                </div>
-                                <canvas id="salesChart" height="250"></canvas>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="chart-container">
-                                <h5 class="mb-4">دسته‌بندی محصولات پرفروش</h5>
-                                <canvas id="categoryChart" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Recent Orders -->
-                    <div class="table-container mt-4">
-                        <h5 class="mb-4">سفارشات اخیر</h5>
-
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>شماره سفارش</th>
-                                        <th>مشتری</th>
-                                        <th>تاریخ</th>
-                                        <th>مبلغ</th>
-                                        <th>وضعیت</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#ORD-78542</td>
-                                        <td>محمد احمدی</td>
-                                        <td>۱۴۰۲/۰۵/۱۲</td>
-                                        <td>۳,۴۵۰,۰۰۰ تومان</td>
-                                        <td><span class="badge bg-success">تحویل شده</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-78541</td>
-                                        <td>فاطمه محمدی</td>
-                                        <td>۱۴۰۲/۰۵/۱۱</td>
-                                        <td>۱۲,۸۰۰,۰۰۰ تومان</td>
-                                        <td><span class="badge bg-warning">در حال پردازش</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-78540</td>
-                                        <td>علی رضایی</td>
-                                        <td>۱۴۰۲/۰۵/۱۰</td>
-                                        <td>۵,۶۰۰,۰۰۰ تومان</td>
-                                        <td><span class="badge bg-primary">ارسال شده</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-78539</td>
-                                        <td>زهرا کریمی</td>
-                                        <td>۱۴۰۲/۰۵/۰۹</td>
-                                        <td>۲,۳۰۰,۰۰۰ تومان</td>
-                                        <td><span class="badge bg-danger">لغو شده</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-78538</td>
-                                        <td>حسین نجفی</td>
-                                        <td>۱۴۰۲/۰۵/۰۸</td>
-                                        <td>۸,۷۵۰,۰۰۰ تومان</td>
-                                        <td><span class="badge bg-success">تحویل شده</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">مشاهده</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="text-center mt-3">
-                            <a href="orders.html" class="btn btn-outline-primary">مشاهده همه سفارشات</a>
-                        </div>
-                    </div>
+                <div class="text-center mt-3">
+                    <a href="orders.html" class="btn btn-outline-primary">مشاهده همه سفارشات</a>
                 </div>
-            </main>
+            </div>
         </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/app.js"></script>
-
+    </main>
+@endsection
+@section('js')
     <script>
         // مدیریت نمایش/مخفی کردن sidebar
         const toggleSidebar = document.getElementById('toggleSidebar');
@@ -498,5 +435,6 @@
             }
         });
     </script>
-</body>
-</html>
+@endsection
+
+
